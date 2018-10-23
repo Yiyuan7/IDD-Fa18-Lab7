@@ -16,23 +16,45 @@ var socket = io();
 
 // send out LedOn message over socket
 function ledON() {
+  document.body.style.backgroundColor = "white";
   socket.emit('ledON');
 }
 
 // send out ledOFF message over socket
 function ledOFF() {
+  document.body.style.backgroundColor = "black";
   socket.emit('ledOFF');
 }
 
 //-- Addition: Forward the `Take a picture` button-press to the webserver.
 function takePicture(){
+  emitPictureTaken();
+  setTimeout(emitPictureTaken(), 1500);
+}
+
+function emitPictureTaken() {
   socket.emit('takePicture');
 }
 
 //-- Addition: This function receives the new image name and applies it to html element.
 
+socket.on('initalImages', function(images) {
+  console.log(`Initial images=`, images);
+  var img = document.createElement("img");
+  img.className = "previousImg";
+  img.src = images;
+  var src = document.getElementById("pastPhotoContainer");
+  src.insertBefore(img, src.childNodes[0]);
+});
+
 socket.on('newPicture', function(msg) {
   document.getElementById('pictureContainer').src=msg;
+
+  var img = document.createElement("img");
+  img.className = "previousImg";
+  img.src = msg;
+  var src = document.getElementById("pastPhotoContainer");
+  src.insertBefore(img, src.childNodes[0]);
 });
 // read the data from the message that the server sent and change the
 // background of the webpage based on the data in the message

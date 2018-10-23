@@ -2,16 +2,110 @@
 <html>
     <head>
         <meta charset="utf8"/>
-        <title>Interaction Engine - Hello You!</title>
+        <title>Video Call, Yiyuan Feng!</title>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </head>
-    <body>
-        <body bgcolor="#000">
-        <button onclick="ledON()">LED ON</button>
-        <button onclick="ledOFF()">LED OFF</button>
-        <button onclick="takePicture()">Take a picture</button>
-      </br>
-        <img src="" id= "pictureContainer" alt="WebCam image  made by the webserver">
-        <script src="client.js"></script>
+    <body bgcolor="#000">
+        <div class="bodyContainer">
+        <!-- Wide card with share menu button -->
+        <div class="demo-card-wide mdl-card">
+          <img id= "pictureContainer" style="background-color:#bdc3c7; width:640px; height:500px;" >
+          <div id="pastPhotoContainer">
+          </div>
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Video Doorbell -- Yiyuan Feng</h2>
+          </div>
+          <div class="mdl-card__actions mdl-card--border" >
+            <button onclick="ledON()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              LED ON
+            </button>
+            <button onclick="ledOFF()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              LED OFF
+            </button>
+            <button onclick="takePicture()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              Take a picture
+            </button>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+              <i class="material-icons">share</i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <script src="client.js"></script>
     </body>
 </html>
+
+
+<style>
+.previousImg {
+  object-fit: fill;
+  height: 250px;
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.bodyContainer {
+  display: flex;
+  border=0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px;
+}
+#pastPhotoContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  padding-left: 30px;
+}
+#pictureContainer {
+  border =0;
+}
+.mdl-card__actions {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.demo-card-wide.mdl-card {
+  width:640px;
+  background-color:#ecf0f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.demo-card-wide > .mdl-card__title {
+  align-self: flex-start;
+  background-color: #DA2727;
+  border-left: 0px;
+  border-right: 19px;
+
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  border: 0;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
