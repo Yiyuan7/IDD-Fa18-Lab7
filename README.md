@@ -22,6 +22,7 @@ I found Google's Material UI framwork and thought it will be useful to improve t
 **b. Upload a video of your working modified project**
 
 [video](https://drive.google.com/open?id=1wd8xggTDwQBbjGSWVXA1kvSkSXOO6d_z)
+![webpage](https://github.com/Yiyuan7/IDD-Fa18-Lab7/blob/master/IMG_2143.PNG)
 
 [code](https://github.com/Yiyuan7/IDD-Fa18-Lab7/blob/master/pictureServer.js)
 [code](https://github.com/Yiyuan7/IDD-Fa18-Lab7/blob/master/public/client.js)
